@@ -769,6 +769,8 @@ def buyer_top_lower(cluster, data = data_update_rfm):
 
 
   fig = px.bar(data_buyer, x = 'buyer_top_lower', y = 'count', color_discrete_sequence=['#35A29F', '#35A29F'])
+  fig.update_xaxes(title = '')
+  fig.update_yaxes(title = 'Total Buyer')
   return fig
 
 def data_buyer_cluster(cluster, data = data_update_rfm):
@@ -806,6 +808,12 @@ def data_buyer_cluster(cluster, data = data_update_rfm):
   data_buyer = pd.merge(data_buyer, data_buyer_category, left_on = 'buyer_name', right_on = 'buyer_name', how = 'left')
   data_buyer['last_order_recency'] = data_buyer['last_order_recency'].dt.days
   data_buyer['first_order'] = data_buyer['first_order'].dt.days
+  data_buyer.sort_values(by = 'po_number', ascending = False, inplace = True)
+  data_buyer.reset_index(drop = True, inplace = True)
+  data_buyer.rename(columns= {'buyer_name': 'Nama Buyer', 
+                              'po_number' : 'Total Order'})
+  data_buyer['Number'] = range(1,len(table_umkm_lower)+1)
+  data_buyer.set_index('Number', inplace = True)
 
   return data_buyer
   
