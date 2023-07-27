@@ -4,11 +4,10 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
-import sqlite3
 import requests
 from datetime import datetime
 from scipy.stats import zscore
-import altair as alt
+
 
 
 
@@ -89,7 +88,7 @@ def plot_top_category(category,list_bulan, data_category=data_category):
     data.reset_index(inplace=True)
 
     # Splitting 'order_month' into 'year' and 'month' columns
-    data['year'], data['month'] = data['order_month'].str.split('-', 1).str
+    data['month'] = data_category['order_date'].str.slice(5, 7)
 
     month = {
         '01': 'January',
