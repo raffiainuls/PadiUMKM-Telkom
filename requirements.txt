@@ -1,0 +1,10 @@
+pandas
+plotly
+numpy
+scikit-learn
+pillow
+openpyxl
+scipy
+datetime
+requests
+humanize
