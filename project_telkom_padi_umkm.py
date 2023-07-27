@@ -505,16 +505,16 @@ def umkm_detail_lower(data_umkm, data_category):
   data_bar.reset_index(inplace = True)
   data_bar.sort_values(by = 'po_number', ascending = True)
 
-  color_category = {'Barang_jasa dan Persewaan' :'#071952',
-                    'Elektronik dan IT' : '#0B666A',
-                    'Kebutuhan Sehari-hari' : '#35A29F',
+  color_category = {'Barang_jasa dan Persewaan' :'#38A3A5',
+                    'Elektronik dan IT' : '#80ED99',
+                    'Kebutuhan Sehari-hari' : '#57CC99',
                     'Kesehatan/Kecantikan/Fashion' : '#97FEED',
-                    'Office & Stationery': '#001C30',
-                    'Otomotif' : '#176B87',
-                    'Hiburan' :'#DAFFFB',
-                    'Pertanian & Pertenakan' : '#45CFDD',
-                    'Pendidikan dan Pelatihan': '#1D5B79',
-                    'Olahraga' : '#3AA6B9',
+                    'Office & Stationery': '#80ED99',
+                    'Otomotif' : '#B4FE98',
+                    'Hiburan' :'#22577A',
+                    'Pertanian & Pertenakan' : '#018383',
+                    'Pendidikan dan Pelatihan': '#42E6A4',
+                    'Olahraga' : '#C6FFC1',
                     }
 
 
@@ -524,7 +524,7 @@ def umkm_detail_lower(data_umkm, data_category):
   cat_data.sort_values( ascending = False, inplace = True)
 
   
-  box_plot = px.box(data_umkm_lower, x = 'umkm_category',  y = 'po_number', points = 'all', hover_data = ['umkm_name'], color= 'umkm_category',color_discrete_sequence=['#071952','#0B666A', '#35A29F', '#97FEED' ] )
+  box_plot = px.box(data_umkm_lower, x = 'umkm_category',  y = 'po_number', points = 'all', hover_data = ['umkm_name'], color= 'umkm_category',color_discrete_sequence=['#38A3A5','#57CC99', '#80ED99', '#B4FE98' ] )
   box_plot.update_yaxes(title = 'Total Order')
   box_plot.update_xaxes(title = 'UMKM Category')
 
@@ -565,6 +565,11 @@ def umkm_detail_lower(data_umkm, data_category):
   table_umkm_lower.rename(columns = {'umkm_name' : 'UMKM', 'umkm_category': 'Category UMKM', 'buyer_name' : 'Last Buyer Name', 'buyer_provinsi' : 'Last Buyer Provinsi', 'buyer_kota' :'Last Buyer Kota', 'provinsi' : 'Provinsi UMKM', 'kota' : 'Kota UMKM', 'recency' : 'Last Recency', 'first_month_order': 'First Order Month', 'first_recency_order' : 'First Order Recency'}, inplace = True)
   table_umkm_lower['Last Recency'] = table_umkm_lower['Last Recency'].dt.days
   table_umkm_lower['First Order Recency'] = table_umkm_lower['First Order Recency'].dt.days
+  table_umkm_lower.sort_values(by = 'Last Recency', ascending = False, inplace = True)
+  table_umkm_lower.reset_index(drop =True, inplace = True)
+  table_umkm_lower['Number'] = range(1,len(table_umkm_lower)+1)
+  table_umkm_lower.set_index('Number', inplace = True)
+  
   
   return table_umkm_lower, box_plot,plot_bar,fig_pie
 
