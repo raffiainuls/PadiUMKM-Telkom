@@ -808,6 +808,7 @@ def data_buyer_cluster(cluster, data = data_update_rfm):
   data_buyer = pd.merge(data_buyer, data_buyer_category, left_on = 'buyer_name', right_on = 'buyer_name', how = 'left')
   data_buyer['last_order_recency'] = data_buyer['last_order_recency'].dt.days
   data_buyer['first_order'] = data_buyer['first_order'].dt.days
+  data_buyer = data_buyer.loc[data_buyer['Cluster_Id'] == cluster]
   data_buyer.sort_values(by = 'po_number', ascending = False, inplace = True)
   data_buyer.reset_index(drop = True, inplace = True)
   data_buyer.rename(columns= {'buyer_name': 'Nama Buyer', 
