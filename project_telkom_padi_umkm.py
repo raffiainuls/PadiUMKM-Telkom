@@ -488,7 +488,7 @@ def umkm_data_detail(list_bulan, umkm_name, data = data_category, data_umkm = da
 def umkm_detail_lower(data_umkm, data_category):
   # drop outlier with zscores method
   data_umkm.fillna(0, inplace=True)
-  data_umkm.groupby(['umkm_name', 'umkm_category']).agg({'po_number' : 'sum'})
+  data_umkm = data_umkm.groupby(['umkm_name', 'umkm_category']).agg({'po_number' : 'sum'})
   data_umkm.reset_index(inplace = True)
   z_scores = np.abs(zscore(data_umkm['po_number']))
   thereshold = 0.1
