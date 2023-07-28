@@ -812,7 +812,7 @@ def data_buyer_cluster(cluster, data = data_update_rfm):
   data_buyer.reset_index(drop = True, inplace = True)
   data_buyer.rename(columns= {'buyer_name': 'Nama Buyer', 
                               'po_number' : 'Total Order'})
-  data_buyer['Number'] = range(1,len(table_umkm_lower)+1)
+  data_buyer['Number'] = range(1,len(data_buyer)+1)
   data_buyer.set_index('Number', inplace = True)
 
   return data_buyer
