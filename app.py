@@ -120,7 +120,7 @@ def main():
             option = st.selectbox('Choose UMKM',
                                   ('teratai indah', 'PT Cahaya Subur Sejahtera', 'KOPEGTEL KANTOR PERUSAHAAN', 'INVESTKO MEGAMART/GratisOngkir S&K berlaku', 'KOPERASI PEGAWAI KERETA API (KOPEKA)', 'Toko Pananjung', 'Sinar Abadi', 'PRIMASARI PANGAN LESTARI', 'KOPEGTEL JAYA', 'PT. Visi Duta Mandiri'))
         with filter2:
-            option_month = st.multiselect('Choose Month',['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember'])
+            option_month = st.multiselect('Choose Month',['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember'], default=['January', 'February', 'March', 'April', 'May'])
 
         
         def filter_top_umkm(plot_top_umkm, total_seler_gain, total_project_value, total_revenue, total_order, first_order, last_recency, data_buyer, pie_chart):
