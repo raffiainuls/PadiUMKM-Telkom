@@ -26,7 +26,7 @@ def main():
             option = st.selectbox('Choose Category',
                                   ('All Category', 'Office & Stationery', 'Kebutuhan Sehari-hari', 'Barang,Jasa dan Persewaan', 'Elektronik dan IT', 'Kesehatan/Kecantikan/Fashion', 'Hiburan', 'Otomotif', 'Pertanian & Pertenakan', 'Olahraga', 'Pendidikan dan Pelatihan'))
         with filter2:
-            option_month = st.multiselect('Choose Month',['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember'])
+            option_month = st.multiselect('Choose Month',['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember'], default=['January', 'February', 'March', 'April', 'May'])
 
         def filter_category(name,column_chart_category, map_plot,  data_map, line_plot):
             st.markdown(f"<h1 style='text-align: center; font-size: 20px; font-family: Arial;'><b>Jumlah Order {name} Category</b></h1>", unsafe_allow_html=True)
