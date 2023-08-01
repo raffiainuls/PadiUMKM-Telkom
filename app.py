@@ -216,7 +216,7 @@ def main():
 
     elif selection =='Clustering' :
         option = st.selectbox('Choose Cluster',
-                                  ('Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'))
+                                  ('New Buyer (Recency Kedua Tertinggi)', 'Newest Buyer(Recency Tertinggi)', 'Valuable Buyer (Monetery Value Kedua Terbaik)', 'Most Valuable Buyer (Monetery Value Terbaik)'))
         st.markdown("<h1 style='text-align: center; font-size: 20px; font-family: Arial;'><b>Clusterin RFM</b></h1>", unsafe_allow_html=True)
         
         
@@ -245,7 +245,7 @@ def main():
             st.dataframe(data_cluster_buyer, height= 500, use_container_width= True)
         
 
-        if option == 'Cluster 1':
+        if option == 'New Buyer (Recency Kedua Tertinggi)':
             cluster = 1 
             map, data_map = map_cluster_rfm(cluster)
             category_cluster = category_cluster_rfm(cluster)
@@ -255,7 +255,7 @@ def main():
             table_buyer = data_buyer_cluster(cluster)
             filter_clustering(map,data_map,category_cluster,cluster_top,pie_chart_lower, composition_buyer_top_lower, table_buyer)
         
-        elif option == 'Cluster 2':
+        elif option == 'Newest Buyer(Recency Tertinggi)':
             cluster = 2
             map, data_map = map_cluster_rfm(cluster)
             category_cluster = category_cluster_rfm(cluster)
@@ -265,7 +265,7 @@ def main():
             table_buyer = data_buyer_cluster(cluster)
             filter_clustering(map,data_map,category_cluster,cluster_top,pie_chart_lower, composition_buyer_top_lower, table_buyer)
         
-        elif option == 'Cluster 3':
+        elif option == 'Valuable Buyer (Monetery Value Kedua Terbaik)':
             cluster = 3
             map, data_map = map_cluster_rfm(cluster)
             category_cluster = category_cluster_rfm(cluster)
@@ -275,7 +275,7 @@ def main():
             table_buyer = data_buyer_cluster(cluster)
             filter_clustering(map,data_map,category_cluster,cluster_top,pie_chart_lower, composition_buyer_top_lower, table_buyer)
         
-        elif option == 'Cluster 4':
+        elif option == 'Most Valuable Buyer (Monetery Value Terbaik)':
             cluster = 4
             map, data_map = map_cluster_rfm(cluster)
             category_cluster = category_cluster_rfm(cluster)
